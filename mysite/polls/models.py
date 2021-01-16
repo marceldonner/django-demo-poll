@@ -1,12 +1,13 @@
+""" definitions of the db models"""
+
 import datetime
 
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-
 
 class Question(models.Model):
+    """ Definition of the Question model with additional configuration for the admin panel. """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
@@ -14,6 +15,7 @@ class Question(models.Model):
         return self.question_text
 
     def was_published_recently(self):
+        """ Check if the question was published less than a day ago. """
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
     was_published_recently.admin_order_field = 'pub_date'
@@ -22,6 +24,7 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
+    """ Definition of the Choice model with its attributes. """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)

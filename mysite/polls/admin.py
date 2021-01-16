@@ -1,17 +1,18 @@
+""" Registration of the admin panels for the db models """
+
 from django.contrib import admin
 
 from .models import Choice, Question
 
-# Register your models here.
-
 
 class ChoiceInline(admin.TabularInline):
+    """ table configuration for the Choices model """
     model = Choice
     extra = 3
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    """ field configuration for the admin panel of the Question object """
+    """ field configuration for the admin panel of the Question model """
     fieldsets = [
         (None,               {'fields': ['question_text']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),

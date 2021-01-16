@@ -1,3 +1,5 @@
+""" Definitions of the test cases for the db models and the views. """
+
 import datetime
 
 from django.test import TestCase
@@ -5,11 +7,10 @@ from django.utils import timezone
 from django.urls import reverse
 
 from .models import Question
-# Create your tests here.
 
 
 class QuestionModelTests(TestCase):
-
+    """ Testfunctions for the Question model """
     def test_was_published_recently_with_future_question(self):
         """
         was_published_recently() returns False for questions whose pub_date
@@ -49,6 +50,7 @@ def create_question(question_text, days):
 
 
 class QuestionIndexViewTests(TestCase):
+    """ Testfunctions for the IndexView. """
     def test_no_questions(self):
         """
         If no questions exist, an appropriate message is displayed.
@@ -107,6 +109,7 @@ class QuestionIndexViewTests(TestCase):
 
 
 class QuestionDetailViewTests(TestCase):
+    """ Testfunctions for the DetailView. """
     def test_future_question(self):
         """
         The detail view of a question with a pub_date in the future
