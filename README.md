@@ -18,3 +18,7 @@ This is a simple recreation of the official [Django tutorial](https://docs.djang
 * Access the admin panel at `/admin`, log in and add some questions with answers to the list.
 * If the question has a text, choices and has it's publish date specied in the past click on `save` and access it at `/polls`.
 * Here you can see the available polls. Click on one of them to see the answer options, select one, press vote and see the results.
+
+## tests
+
+* to run the tests, use `py manage.py test polls`
