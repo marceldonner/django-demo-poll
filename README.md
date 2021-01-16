@@ -1,6 +1,6 @@
 # django-demo-poll
 
-This is a simple recreation of the official [Django tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/).
+This is simply a recreation of the official [Django tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/).
 
 ## setting up django-demo-poll (terminal)
 
@@ -19,6 +19,7 @@ This is a simple recreation of the official [Django tutorial](https://docs.djang
 * If the question has a text, choices and has it's publish date specied in the past click on `save` and access it at `/polls`.
 * Here you can see the available polls. Click on one of them to see the answer options, select one, press vote and see the results.
 
-## tests
+## tests (for the polls app)
 
 * to run the tests, use `py manage.py test polls`
+* you can also check the code coverage according to the [Django docs](https://docs.djangoproject.com/en/3.1/topics/testing/advanced/#topics-testing-code-coverage) by installing coverage with `pip install coverage`, runnning it with `coverage run --source='.' manage.py test polls` and displaying the report with `coverage report`
