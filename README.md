@@ -1,6 +1,6 @@
 # django-demo-poll
 
-This is a simple recreation of the official [Django tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/).
+This is simply a recreation of the official [Django tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/).
 
 ## setting up django-demo-poll (terminal)
 
