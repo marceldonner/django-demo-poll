@@ -39,7 +39,8 @@ class ResultsView(generic.DetailView):
 
 
 def vote(request, question_id):
-    """ View function which recieves a POST from DetailView.
+    """
+    View function which recieves a POST from DetailView.
     Checks whether or not the user selected a choice, return error if not, count up choice else.
     """
 
@@ -48,13 +49,15 @@ def vote(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form with error message.
+        # Redisplay the question voting form with error message, if the choice doesn't exist in db.
         return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
     else:
+        # increase current choice vote count by 1 and save change to the db
         selected_choice.votes += 1
         selected_choice.save()
-        # Return HttpResponseRedirect after POST to prevent multiple POSTs from a user
+
+    # Return HttpResponseRedirect after POST to prevent multiple POSTs from a user
     return HttpResponseRedirect(reverse('polls:results', args=(question_id,)))
