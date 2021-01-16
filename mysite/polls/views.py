@@ -1,5 +1,6 @@
 """ Defintions of the views """
 
+from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
@@ -56,7 +57,7 @@ def vote(request, question_id):
         })
     else:
         # increase current choice vote count by 1 and save change to the db
-        selected_choice.votes += 1
+        selected_choice.votes = F('votes') + 1
         selected_choice.save()
 
     # Return HttpResponseRedirect after POST to prevent multiple POSTs from a user
